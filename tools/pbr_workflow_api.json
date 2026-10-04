@@ -1,0 +1,753 @@
+{
+ "1": {
+  "inputs": {
+   "image": "151292003-ampia-pavimentazione-in-primo-piano-sfondo-o-texture-in-pietra.webp"
+  },
+  "class_type": "LoadImage",
+  "_meta": {
+   "title": "Carica Immagine"
+  }
+ },
+ "131": {
+  "inputs": {
+   "image": [
+    "66:59",
+    0
+   ]
+  },
+  "class_type": "RGBAtoRGB",
+  "_meta": {
+   "title": "RGBA \u2192 RGB"
+  }
+ },
+ "203": {
+  "inputs": {
+   "llm_reply": [
+    "202",
+    0
+   ]
+  },
+  "class_type": "AC1_PBRParams",
+  "_meta": {
+   "title": "AC1 PBR Params"
+  }
+ },
+ "211": {
+  "inputs": {
+   "steps": 4,
+   "ensemble_size": 3,
+   "processing_resolution": 1024,
+   "repo_id": "prs-eth/marigold-iid-appearance-v1-1",
+   "image": [
+    "131",
+    0
+   ],
+   "params": [
+    "203",
+    0
+   ]
+  },
+  "class_type": "AC1_MarigoldMaterial",
+  "_meta": {
+   "title": "AC1 Marigold Albedo/Roughness/Metallic (AI)"
+  }
+ },
+ "213": {
+  "inputs": {
+   "detail_weight": 0.25,
+   "roughness_min": 0.6,
+   "roughness_max": 0.9,
+   "gamma": 1,
+   "contrast": 1.39,
+   "ai_roughness": [
+    "211",
+    1
+   ],
+   "detail": [
+    "131",
+    0
+   ],
+   "params": [
+    "203",
+    0
+   ]
+  },
+  "class_type": "AC1_RoughnessFusion",
+  "_meta": {
+   "title": "AC1 Roughness (AI + detail)"
+  }
+ },
+ "220": {
+  "inputs": {
+   "folder": "C:\\Users\\manu\\Desktop\\AC1_PBR_prove",
+   "texture": [
+    "231",
+    0
+   ],
+   "map": "albedo",
+   "variant": "x4",
+   "images": [
+    "240",
+    0
+   ],
+   "params": [
+    "203",
+    0
+   ]
+  },
+  "class_type": "AC1_SaveToFolder",
+  "_meta": {
+   "title": "albedo x4"
+  }
+ },
+ "221": {
+  "inputs": {
+   "folder": "C:\\Users\\manu\\Desktop\\AC1_PBR_prove",
+   "texture": [
+    "231",
+    0
+   ],
+   "map": "normal",
+   "variant": "x4",
+   "images": [
+    "241",
+    0
+   ]
+  },
+  "class_type": "AC1_SaveToFolder",
+  "_meta": {
+   "title": "normal x4"
+  }
+ },
+ "222": {
+  "inputs": {
+   "folder": "C:\\Users\\manu\\Desktop\\AC1_PBR_prove",
+   "texture": [
+    "231",
+    0
+   ],
+   "map": "height",
+   "variant": "x4",
+   "images": [
+    "242",
+    0
+   ]
+  },
+  "class_type": "AC1_SaveToFolder",
+  "_meta": {
+   "title": "height x4"
+  }
+ },
+ "223": {
+  "inputs": {
+   "folder": "C:\\Users\\manu\\Desktop\\AC1_PBR_prove",
+   "texture": [
+    "231",
+    0
+   ],
+   "map": "roughness",
+   "variant": "x4",
+   "images": [
+    "243",
+    0
+   ]
+  },
+  "class_type": "AC1_SaveToFolder",
+  "_meta": {
+   "title": "roughness x4"
+  }
+ },
+ "230": {
+  "inputs": {
+   "seamless": true,
+   "pad_percent": 12.5,
+   "image": [
+    "301",
+    0
+   ],
+   "mask": [
+    "1",
+    1
+   ]
+  },
+  "class_type": "AC1_TilePad",
+  "_meta": {
+   "title": "AC1 Tile Pad (seamless)"
+  }
+ },
+ "231": {
+  "inputs": {
+   "value": "cobblestone_test"
+  },
+  "class_type": "PrimitiveString",
+  "_meta": {
+   "title": "Texture name"
+  }
+ },
+ "240": {
+  "inputs": {
+   "map_type": "color",
+   "scale": 1,
+   "power_of_two": true,
+   "max_size": 4096,
+   "image": [
+    "66:59",
+    0
+   ],
+   "pad": [
+    "230",
+    2
+   ]
+  },
+  "class_type": "AC1_Finalize",
+  "_meta": {
+   "title": "Finalize albedo x4"
+  }
+ },
+ "241": {
+  "inputs": {
+   "map_type": "normal",
+   "scale": 1,
+   "power_of_two": true,
+   "max_size": 4096,
+   "image": [
+    "311",
+    0
+   ],
+   "pad": [
+    "230",
+    2
+   ]
+  },
+  "class_type": "AC1_Finalize",
+  "_meta": {
+   "title": "Finalize normal x4"
+  }
+ },
+ "242": {
+  "inputs": {
+   "map_type": "data",
+   "scale": 1,
+   "power_of_two": true,
+   "max_size": 4096,
+   "image": [
+    "531",
+    0
+   ],
+   "pad": [
+    "230",
+    2
+   ]
+  },
+  "class_type": "AC1_Finalize",
+  "_meta": {
+   "title": "Finalize height x4"
+  }
+ },
+ "243": {
+  "inputs": {
+   "map_type": "data",
+   "scale": 1,
+   "power_of_two": true,
+   "max_size": 4096,
+   "image": [
+    "213",
+    0
+   ],
+   "pad": [
+    "230",
+    2
+   ]
+  },
+  "class_type": "AC1_Finalize",
+  "_meta": {
+   "title": "Finalize roughness x4"
+  }
+ },
+ "301": {
+  "inputs": {
+   "strength": 0.5,
+   "image": [
+    "1",
+    0
+   ]
+  },
+  "class_type": "AC1_Deblock",
+  "_meta": {
+   "title": "AC1 Deblock (DXT)"
+  }
+ },
+ "66:48": {
+  "inputs": {
+   "tile_size": 512,
+   "overlap": 128,
+   "temporal_size": 4096,
+   "temporal_overlap": 8,
+   "pixels": [
+    "66:58",
+    0
+   ],
+   "vae": [
+    "66:51",
+    0
+   ]
+  },
+  "class_type": "VAEEncodeTiled",
+  "_meta": {
+   "title": "Codifica VAE (a blocchi)"
+  }
+ },
+ "66:50": {
+  "inputs": {
+   "image": [
+    "230",
+    0
+   ],
+   "alpha": [
+    "230",
+    1
+   ]
+  },
+  "class_type": "JoinImageWithAlpha",
+  "_meta": {
+   "title": "Unisci Immagine con Alpha"
+  }
+ },
+ "66:51": {
+  "inputs": {
+   "vae_name": "seedvr2_ema_vae_fp16.safetensors"
+  },
+  "class_type": "VAELoader",
+  "_meta": {
+   "title": "Carica VAE"
+  }
+ },
+ "66:52": {
+  "inputs": {
+   "unet_name": "seedvr2_7b_int8_convrot.safetensors",
+   "weight_dtype": "default"
+  },
+  "class_type": "UNETLoader",
+  "_meta": {
+   "title": "Carica modello di diffusione"
+  }
+ },
+ "66:54": {
+  "inputs": {
+   "seed": 959948902156062,
+   "steps": 1,
+   "cfg": 1,
+   "sampler_name": "euler",
+   "scheduler": "simple",
+   "denoise": 1,
+   "model": [
+    "66:52",
+    0
+   ],
+   "positive": [
+    "66:61",
+    0
+   ],
+   "negative": [
+    "66:61",
+    1
+   ],
+   "latent_image": [
+    "66:48",
+    0
+   ]
+  },
+  "class_type": "KSampler",
+  "_meta": {
+   "title": "KSampler"
+  }
+ },
+ "66:55": {
+  "inputs": {
+   "tile_size": 512,
+   "overlap": 128,
+   "temporal_size": 4096,
+   "temporal_overlap": 8,
+   "samples": [
+    "66:54",
+    0
+   ],
+   "vae": [
+    "66:51",
+    0
+   ]
+  },
+  "class_type": "VAEDecodeTiled",
+  "_meta": {
+   "title": "Decodifica VAE (a blocchi)"
+  }
+ },
+ "66:57": {
+  "inputs": {
+   "resize_type": "scale by multiplier",
+   "resize_type.multiplier": 4,
+   "scale_method": "lanczos",
+   "input": [
+    "66:50",
+    0
+   ]
+  },
+  "class_type": "ResizeImageMaskNode",
+  "_meta": {
+   "title": "Ridimensiona Immagine/Maschera"
+  }
+ },
+ "66:58": {
+  "inputs": {
+   "resized_images": [
+    "66:57",
+    0
+   ]
+  },
+  "class_type": "SeedVR2Preprocess",
+  "_meta": {
+   "title": "Pre-elabora Input SeedVR2"
+  }
+ },
+ "66:59": {
+  "inputs": {
+   "color_correction_method": "lab",
+   "images": [
+    "66:55",
+    0
+   ],
+   "original_resized_images": [
+    "66:57",
+    0
+   ]
+  },
+  "class_type": "SeedVR2PostProcessing",
+  "_meta": {
+   "title": "Post-Elaborazione Output SeedVR2"
+  }
+ },
+ "66:61": {
+  "inputs": {
+   "model": [
+    "66:52",
+    0
+   ],
+   "vae_conditioning": [
+    "66:48",
+    0
+   ]
+  },
+  "class_type": "SeedVR2Conditioning",
+  "_meta": {
+   "title": "Applica SeedVR2 Conditioning"
+  }
+ },
+ "76": {
+  "class_type": "AIXPOLY_PBRFusion4SimpleDepthAndNormalGenerator",
+  "inputs": {
+   "image": [
+    "310",
+    0
+   ],
+   "intensity_blend": 0.3,
+   "opengl_normal": false,
+   "optimize": false,
+   "bilateral_d": 10,
+   "bilateral_sigma_color": 50,
+   "bilateral_sigma_space": 50,
+   "scharr_scale_xy": 1
+  },
+  "_meta": {
+   "title": "PBRFusion4"
+  }
+ },
+ "310": {
+  "class_type": "AC1_CapSize",
+  "inputs": {
+   "image": [
+    "131",
+    0
+   ],
+   "max_side": 2560
+  },
+  "_meta": {
+   "title": "Cap size for PBRFusion"
+  }
+ },
+ "311": {
+  "class_type": "AC1_MatchNormal",
+  "inputs": {
+   "normal": [
+    "76",
+    2
+   ],
+   "reference": [
+    "131",
+    0
+   ],
+   "strength": 1.2
+  },
+  "_meta": {
+   "title": "PBRFusion normal to full size"
+  }
+ },
+ "200": {
+  "inputs": {
+   "setting": "medieval"
+  },
+  "class_type": "AC1_SystemPrompt",
+  "_meta": {
+   "title": "AC1 Material Prompt (VLM)"
+  }
+ },
+ "201": {
+  "inputs": {
+   "clip_name": "qwen3vl_8b_fp8_scaled.safetensors",
+   "type": "stable_diffusion",
+   "device": "default"
+  },
+  "class_type": "CLIPLoader",
+  "_meta": {
+   "title": "Local VLM (Qwen3-VL 8B)"
+  }
+ },
+ "202": {
+  "inputs": {
+   "prompt": [
+    "200",
+    0
+   ],
+   "max_length": 512,
+   "sampling_mode": "on",
+   "sampling_mode.temperature": 0.7,
+   "sampling_mode.top_k": 64,
+   "sampling_mode.top_p": 0.95,
+   "sampling_mode.min_p": 0.05,
+   "sampling_mode.repetition_penalty": 1.05,
+   "sampling_mode.seed": 0,
+   "sampling_mode.presence_penalty": 0,
+   "thinking": false,
+   "use_default_template": true,
+   "mtp": "auto",
+   "clip": [
+    "201",
+    0
+   ],
+   "image": [
+    "1",
+    0
+   ],
+   "system_prompt": [
+    "200",
+    1
+   ]
+  },
+  "class_type": "TextGenerate",
+  "_meta": {
+   "title": "Material analysis (local VLM)"
+  }
+ },
+ "455": {
+  "class_type": "LoadDA3Model",
+  "inputs": {
+   "model_name": "depth_anything_3_mono_large.safetensors",
+   "weight_dtype": "default"
+  },
+  "_meta": {
+   "title": "DA3 mono large"
+  }
+ },
+ "456": {
+  "class_type": "DA3Inference",
+  "inputs": {
+   "da3_model": [
+    "455",
+    0
+   ],
+   "image": [
+    "131",
+    0
+   ],
+   "resolution": 1008,
+   "resize_method": "upper_bound_resize",
+   "mode": "mono"
+  },
+  "_meta": {
+   "title": "DA3"
+  }
+ },
+ "457": {
+  "class_type": "DA3Render",
+  "inputs": {
+   "da3_geometry": [
+    "456",
+    0
+   ],
+   "output": "depth",
+   "output.normalization": "v2_style",
+   "output.apply_sky_clip": false
+  },
+  "_meta": {
+   "title": "DA3 depth"
+  }
+ },
+ "505": {
+  "class_type": "AC1_HeightFinalize",
+  "inputs": {
+   "height": [
+    "457",
+    0
+   ],
+   "reference": [
+    "131",
+    0
+   ],
+   "blur_px": 4.0,
+   "polarity": "keep",
+   "flatten_percent": 5.0
+  },
+  "_meta": {
+   "title": "A: DA3, flatten 5 %, blur 4 px"
+  }
+ },
+ "490": {
+  "class_type": "UpscaleModelLoader",
+  "inputs": {
+   "model_name": "1x-PBRify_NormalV3.pth"
+  },
+  "_meta": {
+   "title": "PBRify Normal V3"
+  }
+ },
+ "451": {
+  "class_type": "AC1_CapSize",
+  "inputs": {
+   "image": [
+    "131",
+    0
+   ],
+   "max_side": 2048
+  },
+  "_meta": {
+   "title": "PBRify input 2048"
+  }
+ },
+ "491": {
+  "class_type": "ImageUpscaleWithModel",
+  "inputs": {
+   "upscale_model": [
+    "490",
+    0
+   ],
+   "image": [
+    "451",
+    0
+   ]
+  },
+  "_meta": {
+   "title": "PBRify normal"
+  }
+ },
+ "492": {
+  "class_type": "AC1_HeightFromNormals",
+  "inputs": {
+   "normal": [
+    "491",
+    0
+   ],
+   "opengl": true,
+   "seamless": false,
+   "detail_weight": 0.0,
+   "height_contrast": 1.0,
+   "blur_percent": 0.0,
+   "flatten_percent": 3.0
+  },
+  "_meta": {
+   "title": "PBRify normal integrata"
+  }
+ },
+ "510": {
+  "class_type": "AC1_HeightFinalize",
+  "inputs": {
+   "height": [
+    "492",
+    0
+   ],
+   "reference": [
+    "131",
+    0
+   ],
+   "blur_px": 4.0,
+   "polarity": "keep",
+   "flatten_percent": 0.0
+  },
+  "_meta": {
+   "title": "B: PBRify normal integrata, blur 4 px"
+  }
+ },
+ "530": {
+  "class_type": "AC1_ImageMix",
+  "inputs": {
+   "image_a": [
+    "505",
+    0
+   ],
+   "image_b": [
+    "510",
+    0
+   ],
+   "mode": "overlay",
+   "factor": 0.3,
+   "normalize": true
+  },
+  "_meta": {
+   "title": "A + 30 % B (overlay)"
+  }
+ },
+ "531": {
+  "class_type": "AC1_ImageBlur",
+  "inputs": {
+   "image": [
+    "530",
+    0
+   ],
+   "radius_px": 5.0,
+   "mode": "gaussiana",
+   "seamless": true
+  },
+  "_meta": {
+   "title": "Sfocatura 5 px"
+  }
+ },
+ "545": {
+  "class_type": "AC1_PackForRemix",
+  "inputs": {
+   "folder": "C:\\Users\\manu\\Desktop\\AC1_PBR_prove",
+   "texture": [
+    "231",
+    0
+   ],
+   "variant": "x4",
+   "pack_tool": "C:\\Users\\manu\\Desktop\\MOD\\AC1-RTX\\tools\\pbr_pack.py",
+   "albedo": [
+    "220",
+    0
+   ],
+   "normal": [
+    "221",
+    0
+   ],
+   "roughness": [
+    "223",
+    0
+   ],
+   "height": [
+    "222",
+    0
+   ]
+  },
+  "_meta": {
+   "title": "Comprimi per Remix (.ac1t)"
+  }
+ }
+}

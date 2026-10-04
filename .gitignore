@@ -1,0 +1,18 @@
+# Dati generati o derivati dal gioco (texture Ubisoft): non vanno nel repository
+pbr/
+assets/
+tests/
+backups/
+
+# Build
+mod/build/
+
+# Python
+__pycache__/
+*.pyc
+
+# Copie di lavoro del workflow
+tools/*_backup.json
+
+# Icona con il marchio del gioco
+*.ico
