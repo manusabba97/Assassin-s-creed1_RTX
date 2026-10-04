@@ -96,6 +96,15 @@ void start(HMODULE module) {
   pbrSettings.exportVegetation = GetPrivateProfileIntW(L"PBR", L"ExportVegetation", 0, iniPath.c_str()) != 0;
   wchar_t pbrFolder[MAX_PATH] = {};
   GetPrivateProfileStringW(L"PBR", L"Folder", L"", pbrFolder, MAX_PATH, iniPath.c_str());
+  // a relative Folder is next to the game executable (release ini: AC1RTX_pbr), made absolute for the runtime's
+  // editor, which runs in another process with another working directory
+  if (pbrFolder[0] && !(pbrFolder[1] == L':' || (pbrFolder[0] == L'\\' && pbrFolder[1] == L'\\'))) {
+    wchar_t exe[MAX_PATH] = {};
+    GetModuleFileNameW(nullptr, exe, MAX_PATH);
+    std::wstring full(exe);
+    full = full.substr(0, full.find_last_of(L"\\/") + 1) + pbrFolder;
+    wcsncpy_s(pbrFolder, full.c_str(), _TRUNCATE);
+  }
   pbrSettings.folder = pbrFolder;
   wchar_t pbrVariant[16] = {};
   GetPrivateProfileStringW(L"PBR", L"Variant", L"x4", pbrVariant, 16, iniPath.c_str());
