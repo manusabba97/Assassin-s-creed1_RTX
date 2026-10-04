@@ -17,7 +17,7 @@ generano dalla propria copia del gioco con il workflow ComfyUI (cartella [`workf
 | `docs/` | Note tecniche e stato del progetto (`docs/progress.md`) |
 
 Il runtime Remix modificato (editor materiali / vegetazione, nebbia d'orizzonte, blend del terreno, estensioni
-dell'API) è in un fork separato di `dxvk-remix`, branch `ac1-rtx`.
+dell'API) è nel fork [manusabba97/dxvk-remix](https://github.com/manusabba97/dxvk-remix/tree/ac1-rtx), branch `ac1-rtx`.
 
 ## Requisiti
 
